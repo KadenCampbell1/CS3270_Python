@@ -58,3 +58,7 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+
+.idea/CS3270_Python.iml
+
+.idea/misc.xml

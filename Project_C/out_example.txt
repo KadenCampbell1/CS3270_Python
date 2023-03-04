@@ -1,0 +1,36 @@
+$ python3 wordgame.py
+Enter the range of word lengths (low,high): 3, 6
+bmmdeu
+['---', '---', '---', '---', '---', '---', '---', '---', '---']
+['----']
+['------']
+Enter a guess:mud
+Correct!
+
+mdbmue
+['---', '---', '---', '---', '---', '---', '---', 'mud', '---']
+['----']
+['------']
+Enter a guess:bed
+Correct!
+
+emmdbu
+['bed', '---', '---', '---', '---', '---', '---', 'mud', '---']
+['----']
+['------']
+Enter a guess:hat
+Sorry. Try again
+
+bemdum
+['bed', '---', '---', '---', '---', '---', '---', 'mud', '---']
+['----']
+['------']
+Enter a guess:bummed
+Correct!
+
+buedmm
+['bed', '---', '---', '---', '---', '---', '---', 'mud', '---']
+['----']
+['bummed']
+Enter a guess:q
+['bed', 'bud', 'bum', 'deb', 'dub', 'due', 'emu', 'mud', 'mum', 'dumb', 'bummed']

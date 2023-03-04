@@ -1,11 +1,12 @@
 import collections
 import random
 import sys
+import os
 
 
 def get_word():
     word_dict = {}
-    text_file = open('words.txt', 'r')
+    text_file = open(f'{os.path.split(sys.argv[0])[0]}\words.txt', 'r')
     for line in text_file.readlines():
         if line is None:
             pass
@@ -78,8 +79,7 @@ def game(start):
             is_correct = False
 
         if is_correct:
-            print("correct")
-            # I need to find the index the word is at and replace that index instead of remaking the list every time
+            print("Correct!\n")
             keys = list(w_dict.keys())
             word_pos = 0
             found = False
@@ -101,18 +101,26 @@ def game(start):
                     end_list.append(v)
             print(end_list)
         else:
-            print("Sorry. Try again")
+            print("Sorry. Try again\n")
 
 
 def main():
-    # logfile = open('log.txt', 'w')
-    # logfile.close()
-    # print(f"{fib(10)}, calls = {fib.count}")
-    # word = input("Enter the range of word lengths (low,high):").lower()
-    word_range = (4, 6)
+    word_range = list(input("Enter the range of word lengths (low,high):").lower())
+    i = 0
+    while i < len(word_range):
+        if not word_range[i].isdigit():
+            word_range.pop(i)
+        else:
+            word_range[i] = int(word_range[i])
+            i += 1
+    word_range = tuple(word_range)
     word_list = get_word()
-    # figure out how to launch with system
-    word = select_word(word_list, word_range, answer=None)
+    try:
+        sys.argv[1]
+    except IndexError:
+        word = select_word(word_list, word_range, answer=None)
+    else:
+        word = select_word(word_list, word_range, answer=sys.argv[1])
     game_ready = generate_list(word)
     game(game_ready)
 
